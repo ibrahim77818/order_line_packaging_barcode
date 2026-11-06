@@ -1,4 +1,4 @@
-# Order Line Packaging Barcode Scanning (Odoo 18.0)
+# Order Line Packaging Barcode Scanning (Odoo 19.0)
 
 Scan packaging and product barcodes straight into **Sales quotations** and **Purchase RFQs**.
 The line gets the right product, unit, quantity and price — no typing, no quantity mistakes.
@@ -20,8 +20,8 @@ Use the branch that matches your Odoo version; the module's technical name is th
 
 - Independent **Packaging Barcode Scanning** switches in Sales and Purchase settings (per company, off by default).
 - Scan anywhere on the order form with a USB/Bluetooth scanner, type into the **Scan Barcode** box, or type a barcode into a line's **Barcode** column.
-- Resolution order: packaging barcode first (`product.packaging` barcodes), then the product barcode — each an indexed lookup.
-- A packaging scan adds the packaging's **contained quantity** in the product unit (4 scans of *Box of 6* = 24 Units, packaging *Box of 6*, packaging quantity 4).
+- Resolution order: packaging barcode first (`product.uom` (Unit Barcodes) records), then the product barcode — each an indexed lookup.
+- Odoo 19 packagings are units of measure: a packaging scan puts the line **in that packaging's unit** and adds 1 (4 scans of *Box of 6* = 4.00 Box of 6, priced per box).
 - A product scan adds 1 product unit; scanning the same barcode again increases the same line.
 - Odoo's own pricelist, vendor price and tax rules recompute the line; purchase lines keep the scanned quantity even though Odoo resets it to the vendor minimum on product change.
 - Non-blocking notifications for unknown barcodes, wrong company, packagings not allowed, missing partner, locked orders, product warning messages.

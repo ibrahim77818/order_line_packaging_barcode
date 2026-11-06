@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-06 00:00+0000\n"
 "PO-Revision-Date: 2026-11-06 00:00+0000\n"
@@ -41,40 +41,40 @@ msgstr ""
 #. module: order_line_packaging_barcode
 #: model_terms:ir.ui.view,arch_db:order_line_packaging_barcode.res_config_settings_view_form_purchase_olpb
 #: model_terms:ir.ui.view,arch_db:order_line_packaging_barcode.res_config_settings_view_form_sale_olpb
-msgid "Enable Product Packagings to see the packaging on order lines. Product barcodes work either way."
+msgid "Enable Units of Measure & Packagings to use packagings on order lines. Product barcodes work either way."
 msgstr ""
 
 #. module: order_line_packaging_barcode
 #. odoo-python
-#: code:addons/order_line_packaging_barcode/models/product_packaging.py:0
+#: code:addons/order_line_packaging_barcode/models/product_uom.py:0
 #, python-format
 msgid "No product or packaging found for barcode \"%s\"."
 msgstr ""
 
 #. module: order_line_packaging_barcode
 #. odoo-python
-#: code:addons/order_line_packaging_barcode/models/product_packaging.py:0
+#: code:addons/order_line_packaging_barcode/models/product_uom.py:0
 #, python-format
 msgid "Packaging \"%(packaging)s\" belongs to company %(company)s."
 msgstr ""
 
 #. module: order_line_packaging_barcode
 #. odoo-python
-#: code:addons/order_line_packaging_barcode/models/product_packaging.py:0
+#: code:addons/order_line_packaging_barcode/models/product_uom.py:0
 #, python-format
-msgid "Packaging \"%s\" has no contained quantity."
+msgid "Packaging \"%s\" is archived."
 msgstr ""
 
 #. module: order_line_packaging_barcode
 #. odoo-python
-#: code:addons/order_line_packaging_barcode/models/product_packaging.py:0
+#: code:addons/order_line_packaging_barcode/models/product_uom.py:0
 #, python-format
 msgid "Packaging \"%s\" is not available for purchases."
 msgstr ""
 
 #. module: order_line_packaging_barcode
 #. odoo-python
-#: code:addons/order_line_packaging_barcode/models/product_packaging.py:0
+#: code:addons/order_line_packaging_barcode/models/product_uom.py:0
 #, python-format
 msgid "Packaging \"%s\" is not available for sales."
 msgstr ""
@@ -136,21 +136,21 @@ msgstr ""
 
 #. module: order_line_packaging_barcode
 #. odoo-python
-#: code:addons/order_line_packaging_barcode/models/product_packaging.py:0
+#: code:addons/order_line_packaging_barcode/models/product_uom.py:0
 #, python-format
 msgid "Product \"%(product)s\" belongs to company %(company)s."
 msgstr ""
 
 #. module: order_line_packaging_barcode
 #. odoo-python
-#: code:addons/order_line_packaging_barcode/models/product_packaging.py:0
+#: code:addons/order_line_packaging_barcode/models/product_uom.py:0
 #, python-format
 msgid "Product \"%s\" cannot be purchased."
 msgstr ""
 
 #. module: order_line_packaging_barcode
 #. odoo-python
-#: code:addons/order_line_packaging_barcode/models/product_packaging.py:0
+#: code:addons/order_line_packaging_barcode/models/product_uom.py:0
 #, python-format
 msgid "Product \"%s\" cannot be sold."
 msgstr ""
@@ -183,12 +183,12 @@ msgstr ""
 
 #. module: order_line_packaging_barcode
 #: model_terms:ir.ui.view,arch_db:order_line_packaging_barcode.res_config_settings_view_form_purchase_olpb
-msgid "Scan barcodes on requests for quotation: a packaging barcode adds the packaging quantity, a product barcode adds one unit"
+msgid "Scan barcodes on requests for quotation: a packaging barcode adds one package in that unit, a product barcode adds one unit"
 msgstr ""
 
 #. module: order_line_packaging_barcode
 #: model_terms:ir.ui.view,arch_db:order_line_packaging_barcode.res_config_settings_view_form_sale_olpb
-msgid "Scan barcodes on sales orders: a packaging barcode adds the packaging quantity, a product barcode adds one unit"
+msgid "Scan barcodes on sales orders: a packaging barcode adds one package in that unit, a product barcode adds one unit"
 msgstr ""
 
 #. module: order_line_packaging_barcode
@@ -224,23 +224,23 @@ msgstr ""
 #. module: order_line_packaging_barcode
 #: model:ir.model.fields,help:order_line_packaging_barcode.field_res_company__purchase_packaging_barcode_scan
 #: model:ir.model.fields,help:order_line_packaging_barcode.field_res_config_settings__purchase_packaging_barcode_scan
-msgid "Scan product and packaging barcodes directly on purchase order lines. A packaging barcode adds the packaging's contained quantity."
+msgid "Scan product and packaging barcodes directly on purchase order lines. A packaging barcode adds one package, in the packaging's unit."
 msgstr ""
 
 #. module: order_line_packaging_barcode
 #: model:ir.model.fields,help:order_line_packaging_barcode.field_res_company__sale_packaging_barcode_scan
 #: model:ir.model.fields,help:order_line_packaging_barcode.field_res_config_settings__sale_packaging_barcode_scan
-msgid "Scan product and packaging barcodes directly on sales order lines. A packaging barcode adds the packaging's contained quantity."
+msgid "Scan product and packaging barcodes directly on sales order lines. A packaging barcode adds one package, in the packaging's unit."
 msgstr ""
 
 #. module: order_line_packaging_barcode
 #: model:ir.model.fields,help:order_line_packaging_barcode.field_purchase_order_line__packaging_barcode_pending
-msgid "Technical field: quantity, unit and packaging of a barcode scan, kept while Odoo re-runs the product onchange."
+msgid "Technical field: quantity and unit of a barcode scan, kept while Odoo re-runs the product onchange."
 msgstr ""
 
 #. module: order_line_packaging_barcode
 #. odoo-python
-#: code:addons/order_line_packaging_barcode/models/product_packaging.py:0
+#: code:addons/order_line_packaging_barcode/models/product_uom.py:0
 #, python-format
 msgid "The product of packaging \"%s\" is archived."
 msgstr ""
@@ -254,16 +254,9 @@ msgstr ""
 
 #. module: order_line_packaging_barcode
 #. odoo-python
-#: code:addons/order_line_packaging_barcode/models/product_packaging.py:0
+#: code:addons/order_line_packaging_barcode/models/product_uom.py:0
 #, python-format
 msgid "The scanned barcode is empty."
-msgstr ""
-
-#. module: order_line_packaging_barcode
-#. odoo-python
-#: code:addons/order_line_packaging_barcode/models/packaging_barcode_mixin.py:0
-#, python-format
-msgid "This product is blocked for this operation."
 msgstr ""
 
 #. module: order_line_packaging_barcode

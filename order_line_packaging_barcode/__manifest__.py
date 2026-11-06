@@ -2,24 +2,25 @@
 {
     'name': 'Order Line Packaging Barcode Scanning',
     'summary': 'Scan packaging and product barcodes on Sales and Purchase order lines, '
-               'with packaging quantity multipliers and safe price recalculation',
+               'in the packaging unit, with safe price recalculation',
     'description': """
 Order Line Packaging Barcode Scanning
 =====================================
 * Independent switches in Sales and Purchase settings (off by default, per company).
 * Scan from anywhere on the order form (USB / Bluetooth keyboard-wedge scanners) or
   type into the "Scan Barcode" box; or type a barcode into a specific order line.
-* Prioritised resolution: product packaging barcode first, then product variant barcode,
-  both served by database indexes (one indexed lookup per scan).
-* Packaging scans add the packaging's contained quantity in the product's unit of
-  measure, set the packaging and packaging quantity, and let Odoo recompute pricelist
-  prices, vendor prices and taxes, with no quantity drift and no onchange loops.
+* Prioritised resolution: packaging (unit) barcode first, then product variant barcode,
+  both served by database indexes (one indexed lookup each).
+* Odoo 19 packagings are units of measure: a packaging scan puts the line in that
+  packaging's unit (e.g. Box of 6) and adds 1; a product scan adds 1 product unit.
+  Odoo then recomputes pricelist prices, vendor prices and taxes in that unit, with
+  no onchange loops.
 * Repeated scans of the same barcode increment the same line.
-* Respects product warnings (blocking messages stop the scan), company rules,
-  "Sales" / "Purchase" flags on packagings and Can be Sold / Can be Purchased.
+* Shows product warning messages, respects company rules, the product's
+  Packagings (and vendor units for purchases) and the Sales / Purchase flags.
 * Arabic (ar_001) translation, RTL-ready layout.
     """,
-    'version': '18.0.1.0.0',
+    'version': '19.0.1.0.0',
     'category': 'Sales/Sales',
     'author': 'Ibrahim Yahia',
     'website': 'https://www.linkedin.com/in/ibrahim-yahia',

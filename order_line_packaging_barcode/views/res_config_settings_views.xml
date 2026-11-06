@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- Odoo 18 settings use <app>/<block>/<setting>; the first field inside a
+    <!-- Odoo 19 settings use <app>/<block>/<setting>; the first field inside a
          <setting> becomes the checkbox, `string`/`help` the label and description. -->
     <record id="res_config_settings_view_form_sale_olpb" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.inherit.sale.packaging.barcode</field>
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//app[@name='sale_management']//setting[@id='stock_packaging']" position="after">
+            <xpath expr="//app[@name='sale_management']//setting[@id='uom_settings']" position="after">
                 <setting id="sale_packaging_barcode_scan_setting"
                          string="Packaging Barcode Scanning"
                          title="Scan packaging and product barcodes on sales order lines."
-                         help="Scan barcodes on sales orders: a packaging barcode adds the packaging quantity, a product barcode adds one unit">
+                         help="Scan barcodes on sales orders: a packaging barcode adds one package in that unit, a product barcode adds one unit">
                     <field name="sale_packaging_barcode_scan"/>
                     <div class="text-warning mt8 o_olpb_setting_hint"
-                         invisible="not sale_packaging_barcode_scan or group_stock_packaging">
-                        Enable Product Packagings to see the packaging on order lines. Product barcodes work either way.
+                         invisible="not sale_packaging_barcode_scan or group_uom">
+                        Enable Units of Measure &amp; Packagings to use packagings on order lines. Product barcodes work either way.
                     </div>
                 </setting>
             </xpath>
@@ -28,15 +28,15 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase"/>
         <field name="arch" type="xml">
-            <xpath expr="//app[@name='purchase']//setting[@id='stock_packaging_purchase']" position="after">
+            <xpath expr="//app[@name='purchase']//setting[@id='sell_purchase_uom']" position="after">
                 <setting id="purchase_packaging_barcode_scan_setting"
                          string="Packaging Barcode Scanning"
                          title="Scan packaging and product barcodes on purchase order lines."
-                         help="Scan barcodes on requests for quotation: a packaging barcode adds the packaging quantity, a product barcode adds one unit">
+                         help="Scan barcodes on requests for quotation: a packaging barcode adds one package in that unit, a product barcode adds one unit">
                     <field name="purchase_packaging_barcode_scan"/>
                     <div class="text-warning mt8 o_olpb_setting_hint"
-                         invisible="not purchase_packaging_barcode_scan or group_stock_packaging">
-                        Enable Product Packagings to see the packaging on order lines. Product barcodes work either way.
+                         invisible="not purchase_packaging_barcode_scan or group_uom">
+                        Enable Units of Measure &amp; Packagings to use packagings on order lines. Product barcodes work either way.
                     </div>
                 </setting>
             </xpath>

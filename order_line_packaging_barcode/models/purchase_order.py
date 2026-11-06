@@ -10,7 +10,7 @@ class PurchaseOrder(models.Model):
 
     _olpb_usage = 'purchase'
     _olpb_company_flag = 'purchase_packaging_barcode_scan'
-    # In Odoo 18 the product of a PO line is read-only once the order is
+    # In Odoo 19 the product of a PO line is read-only once the order is
     # confirmed, so scanning is limited to RFQs.
     _olpb_scannable_states = ('draft', 'sent')
 
@@ -37,12 +37,12 @@ class PurchaseOrderLine(models.Model):
 
     packaging_barcode_pending = fields.Char(
         string="Pending Barcode Scan", store=False,
-        help="Technical field: quantity, unit and packaging of a barcode scan, "
+        help="Technical field: quantity and unit of a barcode scan, "
              "kept while Odoo re-runs the product onchange.")
 
     def _olpb_prepare_new_line(self):
-        # Description, purchase UoM and taxes, as the product onchange does
-        # (the UoM is then replaced by the scanned one).
+        # Description, unit and taxes, as the product onchange does
+        # (the unit is then replaced by the scanned one).
         for line in self:
             line._product_id_change()
         return True
@@ -53,7 +53,7 @@ class PurchaseOrderLine(models.Model):
 
     @api.onchange('product_id')
     def onchange_product_id(self):
-        """Odoo resets the quantity / UoM here (``_suggest_quantity``). When the
+        """Odoo resets the quantity / unit here (``_suggest_quantity``). When the
         product was just set by a barcode scan, put the scanned values back."""
         pending = self.packaging_barcode_pending
         res = super().onchange_product_id()
@@ -70,7 +70,5 @@ class PurchaseOrderLine(models.Model):
             return
         if data.get('product') != self.product_id.id:
             return
-        self.product_uom = self.env['uom.uom'].browse(data['uom'])
+        self.product_uom_id = self.env['uom.uom'].browse(data['uom'])
         self.product_qty = data['qty']
-        self.product_packaging_id = self.env['product.packaging'].browse(data['packaging'] or [])
-        self.product_packaging_qty = data['packaging_qty'] or 0.0

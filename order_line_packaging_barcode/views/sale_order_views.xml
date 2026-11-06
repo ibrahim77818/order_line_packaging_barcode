@@ -9,7 +9,7 @@
             <!-- Scan bar above the order lines. The barcode_handler widget listens to
                  hardware scanners anywhere on the form; it is only mounted while the
                  bar is visible, i.e. when the feature is enabled and the order editable
-                 (Odoo 18: quotation, sent or confirmed, and not locked). -->
+                 (Odoo 19: quotation, sent or confirmed, and not locked). -->
             <xpath expr="//page[@name='order_lines']/field[@name='order_line']" position="before">
                 <field name="packaging_barcode_enabled" invisible="1"/>
                 <div class="o_olpb_scan_bar"

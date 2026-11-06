@@ -1,13 +1,13 @@
-<!-- Odoo Apps description page for order_line_packaging_barcode (Odoo 18.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<!-- Odoo Apps description page for order_line_packaging_barcode (Odoo 19.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
 <section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
 
 <!-- ============================== HERO ============================== -->
 <div style="background:linear-gradient(120deg,#017E84 0%,#3d6b78 45%,#714B67 100%);border-radius:18px;padding:48px 40px 40px;color:#ffffff;margin-top:12px;">
   <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px;">Sales &middot; Purchase &middot; Barcode</div>
   <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">Order Line Packaging Barcode Scanning</h1>
-  <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Scan the barcode of a box, a carton or a single item straight into a quotation or an RFQ. The line gets the right product, the packaging&rsquo;s full quantity and the correct price, with no typing and no quantity mistakes.</p>
+  <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Scan the barcode of a box, a carton or a single item straight into a quotation or an RFQ. The line gets the right product, the packaging as its unit and the correct price, with no typing and no quantity mistakes.</p>
   <div>
-    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 18.0</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 19.0</span>
     <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
     <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">20 automated tests</span>
     <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Arabic (ar_001) &amp; RTL</span>
@@ -18,7 +18,7 @@
 
 <!-- ============================== KEY NUMBERS ============================== -->
 <div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
-  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">1 scan</div><div style="font-size:15px;color:#555;">One box scanned = the box&rsquo;s full quantity on the line</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">1 scan</div><div style="font-size:15px;color:#555;">One box scanned = 1 box on the line, priced per box</div></div>
   <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">2 apps</div><div style="font-size:15px;color:#555;">Sales quotations and purchase RFQs, each with its own switch</div></div>
   <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">3 entry points</div><div style="font-size:15px;color:#555;">Hardware scanner, the Scan Barcode box, or a barcode typed into a line</div></div>
   <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">&le; 2 lookups</div><div style="font-size:15px;color:#555;">Indexed database lookups per scan, whatever the catalogue size</div></div>
@@ -26,16 +26,16 @@
 
 <!-- ============================== WHY ============================== -->
 <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
-<p style="font-size:16px;color:#555;margin:0 0 18px;">Odoo 18 stores barcodes on products and packagings, but sales and purchase order lines cannot use them.</p>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Odoo 19 stores barcodes on products and on packaging units, but sales and purchase order lines cannot use them.</p>
 <div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
   <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
-    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 18</h3>
+    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 19</h3>
     <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
       <li>Order lines have <b>no barcode entry</b>: users search products by name or pick them from the <b>Catalog</b>.</li>
       <li><b>Packaging barcodes</b> are only used in Inventory (the Barcode app), never on orders.</li>
-      <li>Users <b>work out quantities by hand</b> (4 boxes of 6 = 24) and type them in.</li>
+      <li>Users <b>pick the packaging unit by hand</b> on each line and type the quantity.</li>
       <li>On a purchase line, picking a product <b>resets quantity and UoM</b> to the vendor minimum.</li>
-      <li>Typing a quantity that is not a whole number of packages can <b>drift it</b> (13 becomes 13.02).</li>
+      <li>Product warning messages only <b>highlight the line</b>; nobody is told while entering it.</li>
       <li>Repeated items end up as <b>duplicate lines</b> unless someone merges them.</li>
     </ul>
   </div>
@@ -44,9 +44,9 @@
     <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
       <li>A <b>Scan Barcode</b> box above the lines, plus a <b>Barcode</b> column on each line.</li>
       <li><b>Packaging barcodes are checked first</b>, then product barcodes.</li>
-      <li>The <b>packaging quantity is added automatically</b> and the packaging is set on the line.</li>
+      <li>The line gets the <b>packaging as its Unit</b> (e.g. Box of 6) and counts packages.</li>
       <li>The <b>scanned quantity and unit are kept</b>; Odoo then recomputes price and taxes.</li>
-      <li>Quantity, packaging and packaging quantity are set together, so <b>totals stay exact</b>.</li>
+      <li>Product warning messages <b>pop up as you scan</b>, without stopping the scanner.</li>
       <li>Scanning the same barcode again <b>increases the same line</b>.</li>
     </ul>
   </div>
@@ -57,59 +57,59 @@
 <p style="font-size:16px;color:#555;margin:0 0 18px;">Four steps, no training needed.</p>
 <div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
   <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Enable</div><div style="font-size:14px;color:#555;">Tick <b>Packaging Barcode Scanning</b> in Sales and/or Purchase settings. It is off by default.</div></div>
-  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Set barcodes</div><div style="font-size:14px;color:#555;">Give each product and each packaging (box, carton, pallet) its own barcode, as usual.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Set barcodes</div><div style="font-size:14px;color:#555;">Give each product a barcode, and each packaging unit a barcode under <b>Unit Barcodes</b>, as usual.</div></div>
   <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Scan</div><div style="font-size:14px;color:#555;">Pick a customer or vendor, then scan. The scanner works anywhere on the order form.</div></div>
   <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Done</div><div style="font-size:14px;color:#555;">Lines, packagings, quantities, prices and taxes are filled in. Save the order.</div></div>
 </div>
 
 <!-- ============================== FEATURES ============================== -->
 <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Features</h2>
-<p style="font-size:16px;color:#555;margin:0 0 4px;">Screenshots use demo data: <b>Mineral Water 500ml</b> (sold in Units, bought in Dozens) with three packagings, <b>Box of 6</b>, <b>Carton of 24</b> and <b>Pallet of 120</b> (purchase only); a <b>Wholesale</b> pricelist at 9.00 from 24 units (list price 10.00); and a vendor price of 48.00 per dozen from 1 dozen (cost 5.00).</p>
+<p style="font-size:16px;color:#555;margin:0 0 4px;">Screenshots use demo data: <b>Mineral Water 500ml</b> (unit: Units) with the packagings <b>Box of 6</b> and <b>Carton of 24</b>, plus <b>Pallet of 120</b>, used only as a vendor unit (purchase only); a <b>Wholesale</b> pricelist at 9.00 per unit from 24 units (list price 10.00); and a vendor price of 4.00 per unit from 12 units (cost 5.00).</p>
 
 <div style="margin:44px 0 0;">
   <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Settings</div>
   <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Switch it on separately for Sales and Purchase</h3>
-  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Sales &rsaquo; Configuration &rsaquo; Settings &rsaquo; Product Catalog &rsaquo; Packaging Barcode Scanning</b> and <b>Purchase &rsaquo; Configuration &rsaquo; Settings &rsaquo; Products &rsaquo; Packaging Barcode Scanning</b>. Both are off by default and stored per company. The module adds no menus. When <b>Product Packagings</b> is off, the setting shows a hint: product barcodes still work, but the packaging column is hidden on order lines.</p>
-  <img src="olpb_01_settings_sales.png" alt="Sales settings with Packaging Barcode Scanning enabled next to Product Packagings" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);margin-bottom:22px;"/>
-  <img src="olpb_02_settings_purchase.png" alt="Purchase settings with Packaging Barcode Scanning enabled and the Product Packagings hint" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
-  <div style="font-size:13px;color:#777;margin:6px 0 0;">Purchase settings shown with Product Packagings off, to show the hint.</div>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Sales &rsaquo; Configuration &rsaquo; Settings &rsaquo; Product Catalog &rsaquo; Packaging Barcode Scanning</b> and <b>Purchase &rsaquo; Configuration &rsaquo; Settings &rsaquo; Products &rsaquo; Packaging Barcode Scanning</b>. Both are off by default and stored per company. The module adds no menus. When <b>Units of Measure &amp; Packagings</b> is off, the setting shows a hint: product barcodes still work, but packagings cannot be used on order lines.</p>
+  <img src="olpb_01_settings_sales.png" alt="Sales settings with Packaging Barcode Scanning enabled next to Units of Measure &amp; Packagings" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);margin-bottom:22px;"/>
+  <img src="olpb_02_settings_purchase.png" alt="Purchase settings with Packaging Barcode Scanning enabled and the Units of Measure hint" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="font-size:13px;color:#777;margin:6px 0 0;">Purchase settings shown with Units of Measure &amp; Packagings off, to show the hint.</div>
 </div>
 
 <div style="margin:44px 0 0;">
   <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
   <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Scan boxes, cartons and items into a quotation</h3>
-  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Scan Barcode</b> box sits above the <b>Order Lines</b>. A handheld scanner (USB or Bluetooth) works without clicking the box first. Here the <b>Box of 6</b> barcode was scanned 4 times, the <b>Carton of 24</b> once and the product barcode twice. The result is 24 Units with <b>Packaging Quantity</b> 4.00, then 24 Units with 1.00, then 2 Units. The 24-unit lines reach the pricelist break (<b>9.00</b> instead of 10.00). The box line keeps <b>Box of 6</b> as its packaging; Odoo is not allowed to switch it to the carton.</p>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Scan Barcode</b> box sits above the <b>Order Lines</b>. A handheld scanner (USB or Bluetooth) works without clicking the box first. Here the <b>Box of 6</b> barcode was scanned 4 times, the <b>Carton of 24</b> once and the product barcode twice. The result is 4.00 <b>Box of 6</b>, 1.00 <b>Carton of 24</b> and 2.00 <b>Units</b>. Odoo converts each line to units for the pricelist: 4 boxes = 24 units reach the price break, so the box costs <b>54.00</b> (9.00 &times; 6) instead of 60.00.</p>
   <img src="olpb_03_so_scan_bar.png" alt="Quotation with the Scan Barcode box and three lines created from packaging and product barcodes" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
-  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Rule:</b> one packaging scan adds the packaging&rsquo;s <b>Contained quantity</b> in the product&rsquo;s unit of measure. One product scan adds <b>1 unit</b>. A scan increases the line with the same product, the same packaging and the same unit; otherwise it creates a new line. Example: 4 &times; Box of 6 = 24.00 Units, Packaging Quantity 4.00, 24 &times; 9.00 = 216.00.</div>
+  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Rule:</b> one packaging scan adds <b>1</b> in that packaging&rsquo;s <b>Unit</b>. One product scan adds <b>1</b> in the product&rsquo;s unit. A scan increases the line with the same product and the same unit; otherwise it creates a new line. Example: 4 &times; Box of 6 = 4.00 Box of 6 (24 units), 4 &times; 54.00 = 216.00.</div>
 </div>
 
 <div style="margin:44px 0 0;">
   <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
   <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Type a barcode into any line</h3>
-  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Barcode</b> column (optional, shown by default) fills the line you are editing. Type or scan a barcode and press Enter: product, unit, quantity and packaging are set. Entering the line&rsquo;s own barcode again adds one more package or unit. The column is hidden when the feature is off. On a sales line whose product can no longer be changed (for example, already delivered or invoiced), the column is read-only.</p>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Barcode</b> column (optional, shown by default) fills the line you are editing. Type or scan a barcode and press Enter: product, unit and quantity are set. Entering the line&rsquo;s own barcode again adds one more package or unit. The column is hidden when the feature is off. On a sales line whose product can no longer be changed (for example, already delivered or invoiced), the column is read-only.</p>
   <img src="olpb_04_so_line_barcode.png" alt="New order line with a carton barcode typed in the Barcode column" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
 </div>
 
 <div style="margin:44px 0 0;">
   <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
   <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Purchase RFQs with correct vendor prices</h3>
-  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The same scanning works on <b>Requests for Quotation</b>. The line uses the packaging&rsquo;s unit (<b>Units</b>), not the product&rsquo;s purchase unit (<b>Dozens</b>). Odoo&rsquo;s own vendor-price rules then run on that quantity. 1 box (6 units) is below the vendor minimum of 1 dozen, so the line uses the cost (5.00). A second box makes 12 units, and the line switches to the vendor price: 48.00 per dozen = <b>4.00</b> per unit. The purchase-only <b>Pallet of 120</b> can be scanned here, but not in Sales.</p>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The same scanning works on <b>Requests for Quotation</b>. The line uses the packaging as its <b>Unit</b>, and Odoo&rsquo;s own vendor-price rules convert it to the vendor&rsquo;s unit. 1 box (6 units) is below the vendor minimum of 12 units, so the line uses the cost: 5.00 &times; 6 = <b>30.00</b> per box. A second box makes 12 units, and the line switches to the vendor price: 4.00 &times; 6 = <b>24.00</b> per box. <b>Pallet of 120</b> is a vendor unit, so it can be scanned here but not in Sales.</p>
   <img src="olpb_05_po_scan.png" alt="Request for Quotation filled by scanning boxes, a unit and a pallet" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
-  <div style="font-size:13px;color:#777;margin:6px 0 0;">When a product is set on a purchase line, Odoo 18 resets the quantity and unit to the vendor minimum. The module puts the scanned quantity, unit and packaging back.</div>
+  <div style="font-size:13px;color:#777;margin:6px 0 0;">When a product is set on a purchase line, Odoo 19 resets the quantity and unit to the vendor minimum. The module puts the scanned quantity and unit back.</div>
 </div>
 
 <div style="margin:44px 0 0;">
   <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
   <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Clear messages that don&rsquo;t stop the scanner</h3>
-  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Problems appear as non-blocking notifications titled <b>Barcode Scanning</b>, so the next scan can follow straight away. Examples: unknown barcode, packaging not enabled for <b>Sales</b> or <b>Purchase</b>, product not <b>Can be Sold</b> / <b>Can be Purchased</b>, packaging or product from another company, archived product, missing customer or vendor, order in a state that cannot be changed. Product warnings set to <b>Blocking Message</b> (in Purchase, when <b>Warnings</b> are enabled, as in standard Odoo) stop the scan and show the product&rsquo;s message. Plain warnings add the line and show the message.</p>
-  <img src="olpb_06_warnings.png" alt="Barcode Scanning notifications for an unknown barcode, a purchase-only packaging and a blocked product" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Problems appear as non-blocking notifications titled <b>Barcode Scanning</b>, so the next scan can follow straight away. Examples: unknown barcode, a packaging that is not one of the product&rsquo;s <b>Packagings</b> (or, for purchases, a vendor unit), product not <b>Sales</b> / <b>Purchase</b>, packaging or product from another company, archived product or packaging, missing customer or vendor, order in a state that cannot be changed. When <b>Warnings</b> are enabled, the product&rsquo;s warning message is shown as the line is added (Odoo 19 warnings never block).</p>
+  <img src="olpb_06_warnings.png" alt="Barcode Scanning notifications for an unknown barcode, a purchase-only packaging and a product warning message" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
 </div>
 
 <div style="margin:44px 0 0;">
   <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
   <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Uses your existing packagings</h3>
-  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Nothing new to configure on products. The module reads the standard <b>Packaging</b> lines (<b>Contained quantity</b>, <b>Barcode</b>, <b>Sales</b>, <b>Purchase</b>, company) and the product&rsquo;s own <b>Barcode</b>. Odoo already keeps every barcode unique across products and packagings, so each barcode points to exactly one item.</p>
-  <img src="olpb_07_packagings.png" alt="Product form with Box of 6, Carton of 24 and Pallet of 120 packagings and their barcodes" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Nothing new to configure on products. The module reads the product&rsquo;s <b>Unit</b> and <b>Packagings</b>, its <b>Unit Barcodes</b> (unit, barcode, company), its vendor units and its own <b>Barcode</b>. Odoo already keeps packaging barcodes unique and separate from product barcodes, so each barcode points to exactly one product and unit.</p>
+  <img src="olpb_07_packagings.png" alt="Product form with its Packagings and the Unit Barcodes for Box of 6, Carton of 24 and Pallet of 120" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
 </div>
 
 <div style="margin:44px 0 0;">
@@ -123,21 +123,21 @@
 <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Where scanning works</h2>
 <p style="font-size:16px;color:#555;margin:0 0 18px;">The scan bar is only shown, and the scanner only listens, when changes are allowed.</p>
 <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Quotation / Sent</span> Sales: add lines and increase existing ones.</div>
-<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Sales Order</span> Sales: still allowed on confirmed orders as long as they are not <b>locked</b>, as in standard Odoo 18.</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Sales Order</span> Sales: still allowed on confirmed orders as long as they are not <b>locked</b>, as in standard Odoo 19.</div>
 <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">RFQ / RFQ Sent</span> Purchase: add lines and increase existing ones.</div>
-<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Locked / Cancelled</span> No scanning. Sales orders locked with the <b>Lock</b> button are protected too. Purchase orders also stop at <b>To Approve</b> and <b>Purchase Order</b>, where Odoo 18 locks the line product.</div>
-<div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Safe pricing:</b> the module sets product, unit, quantity, packaging and packaging quantity together. Odoo&rsquo;s standard rules then compute <b>Unit Price</b> (pricelist or vendor price), <b>Taxes</b> (with fiscal position) and the description. Example: 101 scans of Box of 6 give exactly 606.00 Units and 101.00 packages, with no rounding drift.</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Locked / Cancelled</span> No scanning. Sales orders locked with the <b>Lock</b> button are protected too. Purchase orders also stop at <b>To Approve</b> and <b>Purchase Order</b>, where Odoo 19 locks the line product.</div>
+<div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Safe pricing:</b> the module sets product, unit and quantity, and nothing else. Odoo&rsquo;s standard rules then compute <b>Unit Price</b> (pricelist or vendor price, converted to the line unit), <b>Taxes</b> (with fiscal position) and the description. Example: 101 scans of Box of 6 give exactly 101.00 Box of 6 at 54.00, with no rounding drift.</div>
 
 <!-- ============================== CORNER CASES ============================== -->
 <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
 <p style="font-size:16px;color:#555;margin:0 0 18px;">Each case is handled in the code; all except down payments are also covered by automated tests.</p>
 <div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
-  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Different units on one product</b><br/><span style="color:#555;">A line in Dozens is never increased by a unit scan; a new line is added instead. No unit conversion means no rounding.</span></div>
-  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Several packagings</b><br/><span style="color:#555;">4 &times; Box of 6 stays a box line even though 24 units would fit a Carton of 24.</span></div>
-  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Multi-company</b><br/><span style="color:#555;">Packagings and products of another company are refused. Each company has its own switches.</span></div>
-  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Sales-only / purchase-only packagings</b><br/><span style="color:#555;">The packaging&rsquo;s <b>Sales</b> and <b>Purchase</b> flags decide where it can be scanned.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Different units on one product</b><br/><span style="color:#555;">A box line is never increased by a unit scan, and the reverse; a new line is added instead. No unit conversion means no rounding.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Several packagings</b><br/><span style="color:#555;">4 &times; Box of 6 stays 4 boxes even though 24 units would fit a Carton of 24.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Multi-company</b><br/><span style="color:#555;">Unit barcodes and products of another company are refused (product barcodes are unique per company in Odoo 19). Each company has its own switches.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Sales vs purchase packagings</b><br/><span style="color:#555;">The product&rsquo;s <b>Packagings</b> work in both; vendor units only in purchases, exactly like the Unit field.</span></div>
   <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Scanner noise</b><br/><span style="color:#555;">Leading and trailing spaces and the Enter or line break sent by scanners are ignored.</span></div>
-  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Archived and unsellable products</b><br/><span style="color:#555;">Archived variants are not found. Products without Can be Sold / Can be Purchased are refused with a clear message.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Archived and unsellable products</b><br/><span style="color:#555;">Archived variants and archived packaging units are refused. Products without Sales / Purchase ticked are refused with a clear message.</span></div>
   <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Down payments</b><br/><span style="color:#555;">Down payment lines on sales orders are never increased by a scan.</span></div>
   <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Large catalogues</b><br/><span style="color:#555;">Lookup cost was tested with 400 extra products and packagings; the number of queries per scan stays the same.</span></div>
   <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>High-speed bursts</b><br/><span style="color:#555;">300 scans in a row on one order: exact totals, at most 4 queries per scan, no slowdown as lines grow.</span></div>
@@ -160,13 +160,13 @@
 <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Technical details</h2>
 <table style="width:100%;border-collapse:collapse;font-size:15px;overflow-wrap:anywhere;">
   <tbody>
-    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;">Odoo version</td><td style="padding:10px 14px;">18.0, Community and Enterprise</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;">Odoo version</td><td style="padding:10px 14px;">19.0, Community and Enterprise</td></tr>
     <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;">Depends on</td><td style="padding:10px 14px;"><code>sale</code>, <code>purchase</code>, <code>barcodes</code> (all standard)</td></tr>
     <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;">Python dependency</td><td style="padding:10px 14px;">None</td></tr>
     <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;">Menus</td><td style="padding:10px 14px;">None added. Works inside the standard Quotation, Sales Order and RFQ forms</td></tr>
     <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;">Settings</td><td style="padding:10px 14px;">Sales &rsaquo; Configuration &rsaquo; Settings &rsaquo; Product Catalog; Purchase &rsaquo; Configuration &rsaquo; Settings &rsaquo; Products</td></tr>
-    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;">Models</td><td style="padding:10px 14px;">No new tables. Two abstract mixins (<code>packaging.barcode.order.mixin</code>, <code>packaging.barcode.line.mixin</code>) applied to sales and purchase orders and lines; two Boolean fields on <code>res.company</code></td></tr>
-    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;">Performance</td><td style="padding:10px 14px;">Lookups use Odoo&rsquo;s existing barcode indexes (unique index on packaging barcodes, partial index on product barcodes); no extra index, no write overhead</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;">Models</td><td style="padding:10px 14px;">No new tables. Two abstract mixins (<code>packaging.barcode.order.mixin</code>, <code>packaging.barcode.line.mixin</code>) applied to sales and purchase orders and lines; the barcode resolver on <code>product.uom</code>; two Boolean fields on <code>res.company</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;">Performance</td><td style="padding:10px 14px;">Lookups use Odoo&rsquo;s existing barcode indexes (indexed, unique unit barcodes on <code>product.uom</code>; indexed product barcodes); no extra index, no write overhead</td></tr>
     <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;">Automated tests</td><td style="padding:10px 14px;">20 tests: settings, resolution order and errors, multi-company, product warnings, sales and purchase scanning (scan box, scanner and line), price breaks, the purchase quantity reset, confirmed and locked orders, query count and indexes, a 300-scan burst, Arabic translation</td></tr>
     <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;">Translations</td><td style="padding:10px 14px;">Arabic (<code>ar_001</code>), complete; <code>.pot</code> template included</td></tr>
     <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;">License</td><td style="padding:10px 14px;">LGPL-3</td></tr>

@@ -97,14 +97,13 @@ class PackagingBarcodeOrderMixin(models.AbstractModel):
         if blocker:
             return self._olpb_warning(blocker)
 
-        Packaging = self.env['product.packaging']
-        resolution = Packaging._olpb_resolve_barcode(barcode, self._olpb_company(), self._olpb_usage)
+        Resolver = self.env['product.uom']
+        resolution = Resolver._olpb_resolve_barcode(barcode, self._olpb_company(), self._olpb_usage)
         if resolution['error']:
             return self._olpb_warning(resolution['error'])
 
-        blocking, warn_message = Packaging._olpb_product_warning(resolution['product'], self._olpb_usage)
-        if blocking:
-            return self._olpb_warning(warn_message or _("This product is blocked for this operation."))
+        # Odoo 19 product warnings are informative only (no blocking mode).
+        warn_message = Resolver._olpb_product_warning(resolution['product'], self._olpb_usage)
 
         lines = self[self._olpb_line_field]
         line = lines._olpb_find_matching_line(resolution)
@@ -123,14 +122,11 @@ class PackagingBarcodeOrderMixin(models.AbstractModel):
         Line = self.env[self._fields[line_field].comodel_name]
         existing = self[line_field]
         vals = Line.default_get(list(Line._fields))
-        product = resolution['product']
-        packaging = resolution['packaging']
         vals.update({
             'display_type': False,
-            'product_id': product.id,
-            'product_uom': product.uom_id.id,
-            'product_packaging_id': packaging.id or False,
-            Line._olpb_qty_field: packaging.qty if packaging else 1.0,
+            'product_id': resolution['product'].id,
+            'product_uom_id': resolution['uom'].id,
+            Line._olpb_qty_field: 1.0,
             'sequence': max(existing.mapped('sequence') or [9]) + 1,
         })
         self.update({line_field: [Command.create(vals)]})
@@ -145,7 +141,7 @@ class PackagingBarcodeLineMixin(models.AbstractModel):
 
     Concrete models must define:
       * ``_olpb_usage``      'sale' | 'purchase'
-      * ``_olpb_qty_field``  quantity field in the line UoM
+      * ``_olpb_qty_field``  quantity field in the line unit
     """
     _name = 'packaging.barcode.line.mixin'
     _description = 'Packaging Barcode Scanning on Order Lines'
@@ -172,15 +168,12 @@ class PackagingBarcodeLineMixin(models.AbstractModel):
         if blocker:
             return order._olpb_warning(blocker)
 
-        Packaging = self.env['product.packaging']
-        resolution = Packaging._olpb_resolve_barcode(barcode, order._olpb_company(), self._olpb_usage)
+        Resolver = self.env['product.uom']
+        resolution = Resolver._olpb_resolve_barcode(barcode, order._olpb_company(), self._olpb_usage)
         if resolution['error']:
             return order._olpb_warning(resolution['error'])
         product = resolution['product']
-
-        blocking, warn_message = Packaging._olpb_product_warning(product, self._olpb_usage)
-        if blocking:
-            return order._olpb_warning(warn_message or _("This product is blocked for this operation."))
+        warn_message = Resolver._olpb_product_warning(product, self._olpb_usage)
 
         if self.product_id and self.product_id != product and not self._olpb_product_changeable():
             return order._olpb_warning(_("The product of this line can no longer be changed."))
@@ -194,11 +187,11 @@ class PackagingBarcodeLineMixin(models.AbstractModel):
         self._olpb_apply_resolution(resolution, increment=not product_changed)
         if product_changed:
             # Odoo re-runs the product_id onchanges after this method; protect
-            # the scanned quantity / UoM / packaging from being reset.
+            # the scanned quantity / unit from being reset.
             self._olpb_protect_scan()
-        # Non-blocking product warnings are shown by Odoo's own product
-        # onchange when the product changes; show it here for increments.
-        if warn_message and not product_changed:
+        # Odoo 19 no longer raises a product warning from an onchange (the line
+        # is only highlighted), so show the message here.
+        if warn_message:
             return order._olpb_warning(warn_message)
 
     # ------------------------------------------------------------------
@@ -218,19 +211,18 @@ class PackagingBarcodeLineMixin(models.AbstractModel):
     # Quantity engine
     # ------------------------------------------------------------------
     def _olpb_matches(self, resolution):
-        """A line matches a scan when product, packaging and UoM are identical.
+        """A line matches a scan when product and unit are identical.
 
-        Unit scans accumulate on lines without packaging, packaging scans on
-        lines of that packaging. Lines in another UoM are never touched, which
-        rules out any UoM conversion rounding on increments.
+        In Odoo 19 a packaging is a unit (e.g. "Box of 6"): unit scans
+        accumulate on lines in the product's unit, packaging scans on lines in
+        that packaging's unit. Lines in another unit are never touched, which
+        rules out any conversion rounding on increments.
         """
         self.ensure_one()
-        product = resolution['product']
         return (
             not self.display_type
-            and self.product_id == product
-            and self.product_packaging_id == resolution['packaging']
-            and self.product_uom == product.uom_id
+            and self.product_id == resolution['product']
+            and self.product_uom_id == resolution['uom']
         )
 
     def _olpb_find_matching_line(self, resolution):
@@ -243,37 +235,29 @@ class PackagingBarcodeLineMixin(models.AbstractModel):
         return True
 
     def _olpb_apply_resolution(self, resolution, increment=True):
-        """Set product, UoM, quantity and packaging coherently.
+        """Set product, unit and quantity: each scan adds 1 in the scanned unit.
 
-        Every value Odoo derives from the others (packaging, packaging
-        quantity, quantity) is assigned explicitly, so when the framework
-        recomputes them it gets exactly the same values: no quantity drift
-        from packaging-quantity rounding and no onchange ping-pong. Price,
-        taxes and descriptions are left to Odoo's own computes, which run on
-        the final quantity and UoM (pricelist / vendor price quantity breaks).
+        Product and unit are assigned explicitly (unit after product, so Odoo's
+        "unit = product unit" compute is discarded). Price, taxes and
+        descriptions are left to Odoo's own computes, which convert the
+        quantity to the product unit for pricelist / vendor price breaks.
         """
         self.ensure_one()
         product = resolution['product']
-        packaging = resolution['packaging']
-        uom = product.uom_id  # == packaging.product_uom_id in Odoo 18
-        step = packaging.qty if packaging else 1.0
+        uom = resolution['uom']
         current = self[self._olpb_qty_field] if increment and self._olpb_matches(resolution) else 0.0
-        qty = float_round(current + step, precision_rounding=uom.rounding)
+        qty = float_round(current + 1.0, precision_rounding=uom.rounding)
 
         if self.product_id != product:
             self.product_id = product
-        self.product_uom = uom
+        self.product_uom_id = uom
         self[self._olpb_qty_field] = qty
-        self.product_packaging_id = packaging
-        self.product_packaging_qty = (qty / packaging.qty) if packaging else 0.0
         return qty
 
     def _olpb_scan_snapshot(self):
         self.ensure_one()
         return json.dumps({
             'product': self.product_id.id,
-            'uom': self.product_uom.id,
+            'uom': self.product_uom_id.id,
             'qty': self[self._olpb_qty_field],
-            'packaging': self.product_packaging_id.id,
-            'packaging_qty': self.product_packaging_qty,
         })
