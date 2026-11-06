@@ -255,7 +255,7 @@ class PackagingBarcodeLineMixin(models.AbstractModel):
         self.ensure_one()
         product = resolution['product']
         packaging = resolution['packaging']
-        uom = product.uom_id  # == packaging.product_uom_id in Odoo 17
+        uom = product.uom_id  # == packaging.product_uom_id in Odoo 18
         step = packaging.qty if packaging else 1.0
         current = self[self._olpb_qty_field] if increment and self._olpb_matches(resolution) else 0.0
         qty = float_round(current + step, precision_rounding=uom.rounding)

@@ -17,7 +17,7 @@
                 </div>
             </xpath>
 
-            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+            <xpath expr="//field[@name='order_line']/list/field[@name='product_id']" position="after">
                 <field name="packaging_barcode_input" optional="show" class="o_olpb_line_input"
                        placeholder="Barcode"
                        column_invisible="not parent.packaging_barcode_enabled"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- Odoo 17 settings use <app>/<block>/<setting>; the first field inside a
+    <!-- Odoo 18 settings use <app>/<block>/<setting>; the first field inside a
          <setting> becomes the checkbox, `string`/`help` the label and description. -->
     <record id="res_config_settings_view_form_sale_olpb" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.inherit.sale.packaging.barcode</field>

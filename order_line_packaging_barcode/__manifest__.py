@@ -19,7 +19,7 @@ Order Line Packaging Barcode Scanning
   "Sales" / "Purchase" flags on packagings and Can be Sold / Can be Purchased.
 * Arabic (ar_001) translation, RTL-ready layout.
     """,
-    'version': '17.0.1.0.0',
+    'version': '18.0.1.0.0',
     'category': 'Sales/Sales',
     'author': 'Ibrahim Yahia',
     'website': 'https://www.linkedin.com/in/ibrahim-yahia',

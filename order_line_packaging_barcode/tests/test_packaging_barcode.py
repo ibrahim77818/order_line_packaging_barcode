@@ -49,7 +49,7 @@ class TestOrderLinePackagingBarcode(TransactionCase):
 
         cls.product = cls.env['product.product'].create({
             'name': 'OLPB Water Bottle',
-            'detailed_type': 'consu',
+            'type': 'consu',
             'barcode': UNIT,
             'list_price': 10.0,
             'standard_price': 5.0,
@@ -316,7 +316,7 @@ class TestOrderLinePackagingBarcode(TransactionCase):
         }])
 
     def test_25_sale_locked_order_is_protected(self):
-        """Odoo 17 locks confirmed orders with the `locked` flag (no 'done' state)."""
+        """Odoo 18 locks confirmed orders with the `locked` flag (no 'done' state)."""
         so_form = self._sale_form()
         so_form.packaging_barcode_input = BOX
         order = so_form.save()

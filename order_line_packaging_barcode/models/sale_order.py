@@ -8,7 +8,7 @@ class SaleOrder(models.Model):
 
     _olpb_usage = 'sale'
     _olpb_company_flag = 'sale_packaging_barcode_scan'
-    # Odoo 17 lets users add lines to quotations and confirmed orders; locking is
+    # Odoo 18 lets users add lines to quotations and confirmed orders; locking is
     # a separate `locked` flag (there is no 'done' state any more).
     _olpb_scannable_states = ('draft', 'sent', 'sale')
 

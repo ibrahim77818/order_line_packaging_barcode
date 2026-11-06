@@ -1,4 +1,4 @@
-<!-- Odoo Apps description page for order_line_packaging_barcode (Odoo 17.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<!-- Odoo Apps description page for order_line_packaging_barcode (Odoo 18.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
 <section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
 
 <!-- ============================== HERO ============================== -->
@@ -7,7 +7,7 @@
   <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">Order Line Packaging Barcode Scanning</h1>
   <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Scan the barcode of a box, a carton or a single item straight into a quotation or an RFQ. The line gets the right product, the packaging&rsquo;s full quantity and the correct price, with no typing and no quantity mistakes.</p>
   <div>
-    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 17.0</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 18.0</span>
     <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
     <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">20 automated tests</span>
     <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Arabic (ar_001) &amp; RTL</span>
@@ -26,10 +26,10 @@
 
 <!-- ============================== WHY ============================== -->
 <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
-<p style="font-size:16px;color:#555;margin:0 0 18px;">Odoo 17 stores barcodes on products and packagings, but sales and purchase order lines cannot use them.</p>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Odoo 18 stores barcodes on products and packagings, but sales and purchase order lines cannot use them.</p>
 <div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
   <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
-    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 17</h3>
+    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 18</h3>
     <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
       <li>Order lines have <b>no barcode entry</b>: users search products by name or pick them from the <b>Catalog</b>.</li>
       <li><b>Packaging barcodes</b> are only used in Inventory (the Barcode app), never on orders.</li>
@@ -95,7 +95,7 @@
   <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Purchase RFQs with correct vendor prices</h3>
   <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The same scanning works on <b>Requests for Quotation</b>. The line uses the packaging&rsquo;s unit (<b>Units</b>), not the product&rsquo;s purchase unit (<b>Dozens</b>). Odoo&rsquo;s own vendor-price rules then run on that quantity. 1 box (6 units) is below the vendor minimum of 1 dozen, so the line uses the cost (5.00). A second box makes 12 units, and the line switches to the vendor price: 48.00 per dozen = <b>4.00</b> per unit. The purchase-only <b>Pallet of 120</b> can be scanned here, but not in Sales.</p>
   <img src="olpb_05_po_scan.png" alt="Request for Quotation filled by scanning boxes, a unit and a pallet" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
-  <div style="font-size:13px;color:#777;margin:6px 0 0;">When a product is set on a purchase line, Odoo 17 resets the quantity and unit to the vendor minimum. The module puts the scanned quantity, unit and packaging back.</div>
+  <div style="font-size:13px;color:#777;margin:6px 0 0;">When a product is set on a purchase line, Odoo 18 resets the quantity and unit to the vendor minimum. The module puts the scanned quantity, unit and packaging back.</div>
 </div>
 
 <div style="margin:44px 0 0;">
@@ -123,9 +123,9 @@
 <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Where scanning works</h2>
 <p style="font-size:16px;color:#555;margin:0 0 18px;">The scan bar is only shown, and the scanner only listens, when changes are allowed.</p>
 <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Quotation / Sent</span> Sales: add lines and increase existing ones.</div>
-<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Sales Order</span> Sales: still allowed on confirmed orders as long as they are not <b>locked</b>, as in standard Odoo 17.</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Sales Order</span> Sales: still allowed on confirmed orders as long as they are not <b>locked</b>, as in standard Odoo 18.</div>
 <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">RFQ / RFQ Sent</span> Purchase: add lines and increase existing ones.</div>
-<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Locked / Cancelled</span> No scanning. Sales orders locked with the <b>Lock</b> button are protected too. Purchase orders also stop at <b>To Approve</b> and <b>Purchase Order</b>, where Odoo 17 locks the line product.</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Locked / Cancelled</span> No scanning. Sales orders locked with the <b>Lock</b> button are protected too. Purchase orders also stop at <b>To Approve</b> and <b>Purchase Order</b>, where Odoo 18 locks the line product.</div>
 <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Safe pricing:</b> the module sets product, unit, quantity, packaging and packaging quantity together. Odoo&rsquo;s standard rules then compute <b>Unit Price</b> (pricelist or vendor price), <b>Taxes</b> (with fiscal position) and the description. Example: 101 scans of Box of 6 give exactly 606.00 Units and 101.00 packages, with no rounding drift.</div>
 
 <!-- ============================== CORNER CASES ============================== -->
@@ -160,7 +160,7 @@
 <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Technical details</h2>
 <table style="width:100%;border-collapse:collapse;font-size:15px;overflow-wrap:anywhere;">
   <tbody>
-    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;">Odoo version</td><td style="padding:10px 14px;">17.0, Community and Enterprise</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;">Odoo version</td><td style="padding:10px 14px;">18.0, Community and Enterprise</td></tr>
     <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;">Depends on</td><td style="padding:10px 14px;"><code>sale</code>, <code>purchase</code>, <code>barcodes</code> (all standard)</td></tr>
     <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:30%;color:#777;">Python dependency</td><td style="padding:10px 14px;">None</td></tr>
     <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:30%;color:#777;">Menus</td><td style="padding:10px 14px;">None added. Works inside the standard Quotation, Sales Order and RFQ forms</td></tr>
