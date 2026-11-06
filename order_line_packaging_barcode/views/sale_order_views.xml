@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_form_packaging_barcode" model="ir.ui.view">
+        <field name="name">sale.order.form.packaging.barcode</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Scan bar above the order lines. The barcode_handler widget listens to
+                 hardware scanners anywhere on the form; it is only mounted while the
+                 bar is visible, i.e. when the feature is enabled and the order editable. -->
+            <xpath expr="//page[@name='order_lines']/field[@name='order_line']" position="before">
+                <field name="packaging_barcode_enabled" invisible="1"/>
+                <div class="o_olpb_scan_bar"
+                     attrs="{'invisible': ['|', ('packaging_barcode_enabled', '=', False), ('state', 'not in', ('draft', 'sent', 'sale'))]}">
+                    <field name="_barcode_scanned" widget="barcode_handler"/>
+                    <label for="packaging_barcode_input" class="o_olpb_scan_label"/>
+                    <field name="packaging_barcode_input" nolabel="1" class="o_olpb_scan_input"
+                           placeholder="Scan or type a packaging / product barcode, then press Enter"/>
+                </div>
+            </xpath>
+
+            <!-- Per-line barcode column (type a barcode into a specific line). -->
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
+                <field name="packaging_barcode_input" optional="show" class="o_olpb_line_input"
+                       placeholder="Barcode"
+                       attrs="{'column_invisible': [('parent.packaging_barcode_enabled', '=', False)],
+                               'readonly': [('product_updatable', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

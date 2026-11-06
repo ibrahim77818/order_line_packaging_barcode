@@ -1,0 +1,58 @@
+// Order Line Packaging Barcode Scanning
+// Logical properties (inline-start / inline-end) keep the layout correct in
+// right-to-left languages such as Arabic (ar_001) without RTL overrides.
+
+.o_olpb_scan_bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-width: 44rem;
+    margin-block: 0 0.75rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px dashed $border-color;
+    border-radius: $border-radius;
+    background-color: rgba($o-brand-primary, 0.04);
+
+    // Icon drawn in CSS so the view holds no markup-in-term for translators.
+    &::before {
+        content: "\f02a"; // fa-barcode
+        font-family: FontAwesome;
+        font-size: 1.35rem;
+        line-height: 1;
+        color: $o-brand-primary;
+    }
+
+    .o_olpb_scan_label {
+        margin: 0;
+        font-weight: $font-weight-bold;
+        white-space: nowrap;
+    }
+
+    .o_olpb_scan_input {
+        flex: 1 1 16rem;
+        min-width: 12rem;
+
+        input {
+            font-family: $font-family-monospace;
+            letter-spacing: 0.03em;
+            text-align: start;
+        }
+    }
+}
+
+.o_list_renderer .o_olpb_line_input input {
+    font-family: $font-family-monospace;
+    text-align: start;
+}
+
+.o_olpb_setting_hint::before {
+    content: "\f05a"; // fa-info-circle
+    font-family: FontAwesome;
+    margin-inline-end: 0.35rem;
+}
+
+// The hardware-scanner listener (barcode_handler widget) renders nothing.
+.o_olpb_scan_bar > .o_field_barcode_handler {
+    display: none;
+}

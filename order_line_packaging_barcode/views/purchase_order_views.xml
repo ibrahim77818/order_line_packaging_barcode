@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="purchase_order_form_packaging_barcode" model="ir.ui.view">
+        <field name="name">purchase.order.form.packaging.barcode</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='products']/field[@name='order_line']" position="before">
+                <field name="packaging_barcode_enabled" invisible="1"/>
+                <div class="o_olpb_scan_bar"
+                     attrs="{'invisible': ['|', ('packaging_barcode_enabled', '=', False), ('state', 'not in', ('draft', 'sent'))]}">
+                    <field name="_barcode_scanned" widget="barcode_handler"/>
+                    <label for="packaging_barcode_input" class="o_olpb_scan_label"/>
+                    <field name="packaging_barcode_input" nolabel="1" class="o_olpb_scan_input"
+                           placeholder="Scan or type a packaging / product barcode, then press Enter"/>
+                </div>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+                <field name="packaging_barcode_input" optional="show" class="o_olpb_line_input"
+                       placeholder="Barcode"
+                       attrs="{'column_invisible': [('parent.packaging_barcode_enabled', '=', False)],
+                               'readonly': [('state', 'in', ('purchase', 'to approve', 'done', 'cancel'))]}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
