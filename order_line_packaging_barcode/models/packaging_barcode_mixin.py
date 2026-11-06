@@ -62,6 +62,9 @@ class PackagingBarcodeOrderMixin(models.AbstractModel):
             'type': 'notification',
         }}
 
+    def _olpb_is_locked(self):
+        return False
+
     def _olpb_partner_missing_message(self):
         return _("Please select a partner before scanning.")
 
@@ -71,7 +74,7 @@ class PackagingBarcodeOrderMixin(models.AbstractModel):
         if not self._olpb_is_enabled():
             return _("Packaging barcode scanning is disabled for this company. "
                      "Enable it in the settings.")
-        if self.state not in self._olpb_scannable_states:
+        if self.state not in self._olpb_scannable_states or self._olpb_is_locked():
             return _("Products cannot be scanned on an order in this state.")
         if not self.partner_id:
             return self._olpb_partner_missing_message()
@@ -252,7 +255,7 @@ class PackagingBarcodeLineMixin(models.AbstractModel):
         self.ensure_one()
         product = resolution['product']
         packaging = resolution['packaging']
-        uom = product.uom_id  # == packaging.product_uom_id in Odoo 16
+        uom = product.uom_id  # == packaging.product_uom_id in Odoo 17
         step = packaging.qty if packaging else 1.0
         current = self[self._olpb_qty_field] if increment and self._olpb_matches(resolution) else 0.0
         qty = float_round(current + step, precision_rounding=uom.rounding)

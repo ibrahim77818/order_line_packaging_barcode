@@ -1,4 +1,4 @@
-# Order Line Packaging Barcode Scanning (Odoo 16.0)
+# Order Line Packaging Barcode Scanning (Odoo 17.0)
 
 Scan packaging and product barcodes straight into **Sales quotations** and **Purchase RFQs**.
 The line gets the right product, unit, quantity and price — no typing, no quantity mistakes.
@@ -37,7 +37,7 @@ Depends on: `sale`, `purchase`, `barcodes` (standard). Community and Enterprise.
 
 ## Tests
 
-19 automated tests (`TransactionCase`, tag `olpb`):
+20 automated tests (`TransactionCase`, tag `olpb`):
 
 ```
 odoo-bin -d <db> -i order_line_packaging_barcode --test-tags /order_line_packaging_barcode --stop-after-init

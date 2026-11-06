@@ -30,7 +30,7 @@ class ProductPackaging(models.Model):
 
     # Performance note: product.packaging.barcode is backed by the UNIQUE index
     # of the `barcode_uniq` SQL constraint and product.product.barcode carries
-    # index='btree_not_null' in Odoo 16, so each lookup below is a single
+    # index='btree_not_null' in Odoo 17, so each lookup below is a single
     # index scan. No extra index is created on purpose (it would only add
     # write overhead).
 
@@ -42,7 +42,7 @@ class ProductPackaging(models.Model):
           1. ``product.packaging`` barcode (unique by SQL constraint)
           2. ``product.product`` variant barcode
 
-        Odoo 16 also enforces that a barcode is never shared between a
+        Odoo 17 also enforces that a barcode is never shared between a
         product and a packaging, so the first match is authoritative.
 
         :param str barcode: raw scanner input (surrounding whitespace ignored)

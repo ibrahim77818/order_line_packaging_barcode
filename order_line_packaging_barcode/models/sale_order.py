@@ -8,7 +8,8 @@ class SaleOrder(models.Model):
 
     _olpb_usage = 'sale'
     _olpb_company_flag = 'sale_packaging_barcode_scan'
-    # Odoo 16 lets users add lines to quotations and confirmed (unlocked) orders.
+    # Odoo 17 lets users add lines to quotations and confirmed orders; locking is
+    # a separate `locked` flag (there is no 'done' state any more).
     _olpb_scannable_states = ('draft', 'sent', 'sale')
 
     packaging_barcode_enabled = fields.Boolean(
@@ -20,6 +21,9 @@ class SaleOrder(models.Model):
     def _compute_packaging_barcode_enabled(self):
         for order in self:
             order.packaging_barcode_enabled = order._olpb_is_enabled()
+
+    def _olpb_is_locked(self):
+        return self.locked
 
     def _olpb_partner_missing_message(self):
         return _("Please select a customer before scanning.")

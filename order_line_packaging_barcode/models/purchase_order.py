@@ -10,7 +10,7 @@ class PurchaseOrder(models.Model):
 
     _olpb_usage = 'purchase'
     _olpb_company_flag = 'purchase_packaging_barcode_scan'
-    # In Odoo 16 the product of a PO line is read-only once the order is
+    # In Odoo 17 the product of a PO line is read-only once the order is
     # confirmed, so scanning is limited to RFQs.
     _olpb_scannable_states = ('draft', 'sent')
 

@@ -315,6 +315,18 @@ class TestOrderLinePackagingBarcode(TransactionCase):
             'product_uom_qty': 12.0, 'product_packaging_qty': 2.0,
         }])
 
+    def test_25_sale_locked_order_is_protected(self):
+        """Odoo 17 locks confirmed orders with the `locked` flag (no 'done' state)."""
+        so_form = self._sale_form()
+        so_form.packaging_barcode_input = BOX
+        order = so_form.save()
+        order.action_confirm()
+        order.action_lock()
+        self.assertTrue(order.locked)
+        res = order._olpb_scan(BOX)
+        self.assertIn('warning', res)
+        self.assertEqual(order.order_line.product_uom_qty, 6.0)
+
     def test_24_sale_other_uom_line_is_not_touched(self):
         """A line in another UoM is never incremented (no conversion rounding)."""
         order = self._new_sale_order()

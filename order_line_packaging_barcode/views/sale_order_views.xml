@@ -8,11 +8,12 @@
         <field name="arch" type="xml">
             <!-- Scan bar above the order lines. The barcode_handler widget listens to
                  hardware scanners anywhere on the form; it is only mounted while the
-                 bar is visible, i.e. when the feature is enabled and the order editable. -->
+                 bar is visible, i.e. when the feature is enabled and the order editable
+                 (Odoo 17: quotation, sent or confirmed, and not locked). -->
             <xpath expr="//page[@name='order_lines']/field[@name='order_line']" position="before">
                 <field name="packaging_barcode_enabled" invisible="1"/>
                 <div class="o_olpb_scan_bar"
-                     attrs="{'invisible': ['|', ('packaging_barcode_enabled', '=', False), ('state', 'not in', ('draft', 'sent', 'sale'))]}">
+                     invisible="not packaging_barcode_enabled or state not in ('draft', 'sent', 'sale') or locked">
                     <field name="_barcode_scanned" widget="barcode_handler"/>
                     <label for="packaging_barcode_input" class="o_olpb_scan_label"/>
                     <field name="packaging_barcode_input" nolabel="1" class="o_olpb_scan_input"
@@ -24,8 +25,8 @@
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
                 <field name="packaging_barcode_input" optional="show" class="o_olpb_line_input"
                        placeholder="Barcode"
-                       attrs="{'column_invisible': [('parent.packaging_barcode_enabled', '=', False)],
-                               'readonly': [('product_updatable', '=', False)]}"/>
+                       column_invisible="not parent.packaging_barcode_enabled"
+                       readonly="not product_updatable"/>
             </xpath>
         </field>
     </record>
